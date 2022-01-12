@@ -51,6 +51,7 @@
 `git push -u origin master` *// caso seja o primeiro push irá enviar os arquivos para a branch master*<br><br>
 `git clone link_do_repositorio` *// irá fazer um clone do repositório informado*<br><br>
 `git rm --cached nome_do_arquivo` *// remove o arquivo do próximo commit*<br>
+`git rm -r --cached .` *// irá remover todos os arquivos do rastreio do git* <br>
 `git rm nome_arquivo` *// remove o arquivo do diretorio, porém ele não vai para a lixeira do computador, ele é totalmente deletado*<br><br>
 `git diff` *// mostra todas as alterações dos arquivos no working directory em comparação com o diretorio. (-) significa linhas removidas, (+) significa linhas adicionadas*<br>
 `git diff --staged` *// mostra todas as alterações que serão commitadas.* <br>
