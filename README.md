@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-
 # Semana 1 - Git
 ***
 ## Dia 1
@@ -10,14 +8,11 @@
 - Realizando primeiros commits
 ## Dia 2
 - Aprendendo sobre alteração de arquivos no git
-- Como reverter o modificações
+- Como reverter modificações
 - Corrigindo últimos commits
 - Recuperando arquivos
 - Deletando arquivos
-- Atualização da lista de commandos e correções
-=======
-
-# Semana 1 - Git
-
-
->>>>>>> d388b55 (primeiro commit; adicionando arquivos)
+## Dia 3
+- Aprendendo melhores práticas nos commits
+- Otimizando commits antes de um push
+- Aprendendo sobre Git ignore
