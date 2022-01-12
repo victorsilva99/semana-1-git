@@ -1,86 +1,109 @@
 # Comandos do Git
-***
+
 ## Configuração Inicial
-`git config --global user.name "seu nome completo"` *// adicionará seu nome aos commits de forma global* <br>
-`git config --global user.email "seu email"` *// adicionará seu email aos commits de forma global*<br>
-`git config --global core.editor "nome do editor"` *// informará ao terminal qual editor usar por padrão*<br>
-`git config credential.helper store` *// salva a credencial atual para não precisar adicionar a senha a cada requisição*<br>
-`git config --list `*// mostra as informações do repositório local*<br>
-***
+`git config --global user.name "seu nome completo"` *// Adicionará seu nome aos commits de forma global.*  
+`git config --global user.email "seu email"` *// Adicionará seu email aos commits de forma global.*  
+`git config --global core.editor "nome do editor"` *// Informará ao terminal qual editor usar por padrão*  
+`git config credential.helper store` *// Salva a credencial atual para não precisar adicionar a senha a cada requisição*  
+`git config --list `*// Mostra as informações do repositório local*  
+
 ## Criando chave SSH
-`ssh-keygen -t rsa -b 2048 -C "seu email"` *// irá criar uma chave SSH em RSA registrada com seu email*<br>
-`cat ~/.ssh/id_rsa.pub` *// irá mostrar a sua chave SSH publica que acabou de ser criada*<br><br>
-`eval "$(ssh-agent -s)"`<br>
-`ssh-add ~/.ssh/id_rsa`<br>
-*// inicia o SSH agent na sua máquina*
-***
+`ssh-keygen -t rsa -b 2048 -C "seu email"` *// Irá criar uma chave SSH em RSA registrada com seu email*  
+`cat ~/.ssh/id_rsa.pub` *// Irá mostrar a sua chave SSH publica que acabou de ser criada*  
+`eval "$(ssh-agent -s)"`  
+`ssh-add ~/.ssh/id_rsa`  
+*// Inicia o SSH agent na sua máquina*  
+
 ## Outros comandos
-`git init` *// inicia um diretorio git na pasta atual*<br><br>
-`git commit -m "mensagem do commit"` *// cria um novo commit com uma mensagem*<br>
-`git commit -am "mensagem do commit` *// Adiciona as alterações ao stage area e logo após realizado o commit, sem precisar usar o comando git add. Funciona apenas com arquivos já rastreados*<br>
-`git commit --amend -m "mesagem do novo commit"` *// Irá sobreescrever o último commit, como se fosse uma correção*<br><br>
-`git reflog` *// mostra um log com todas as mudanças de grafos feitas pelo git*<br>
-`git log `*// mostra todos os commits realizados*<br>
-`git log -i graph` *// mostra o git log parecido como um gráfico*<br>
-`git log --oneline `*// mostra todos os commits realizados com informações resumidas em uma linha*<br>
-`git log -n 5 `*// limita a quantidade de commits para mostrar apenas os últimos*<br>
-`git log --since=ano-mes-dia `*// mostra todos os commits a partir da data informada*<br>
-`git log --until=ano-mes-dia `*// mostra todos os commits anteriores a data informada*<br>
-`git log --author=nome_do_autor_do_commit `*// mostra todos os commits com base no nome*<br>
-`git log --grep="expressão" `*// (Global Regular Expression Print) fará uma busca geral nos commits com base na expressão informada*<br><br>
-`git add -i` *//(i = interative) abre uma janela interativa mostrando opções do git add*<br>
-`git add -p` *//(p= patch) git irá perguntar quais modificações do arquivo eu desejo commitar. Isso serve para fazer commits de mudanças bem especificas ao invés de todas as mudanças* <br>
-`git add nome_do_arquivo` *// adiciona o arquivo a stage area*<br>
-`git add .` *// adiciona todos os arquivos para a stage area*<br>
-`git add *.extensão` *// irá adicionar ao stage area todos os arquivos com a extensão informada*<br><br>
-`git --version` *// verifica a versão do git*<br><br>
-`git help` *// mostra o manual do git*<br><br>
-`git status` *// mosra o status de todos os arquivos do diretorio atual*<br><br>
-`git show` *// mostra informações do último commit*<br>
-`git show -- numero_hash_commit pasta/*`  *// mostra todas as alterações da pasta informada*<br>
-`git show -- numero_hash_commit pasta/nome_arquivo` *//mostra todas as alterações do arquivo informado*<br><br>
-`git branch` *// lista todos as branchs do projeto*<br>
-`git branch nome_da_branch` *// cria uma nova branch a partir da branch atual*<br>
-`git branch -D nome_da_branch` *// irá deletar a branch informada*<br><br>
-`git checkout começo_hash_commit -- nome_arquivo` *// Esse comando restaura um arquivo especificado de um dos commits realizados, é necessário adicionar a hash do comimit (por garantia, no minimo os 5 primieiros)*<br>
-`git checkout nome_da_branch` *// irá direcionar para a branch informada*<br><br>
-`git merge nome_da_branch` *// irá fazer um menge da branch com a master*<br><br>
-`git remote add origin "link do repositorio remoto"` *// irá adicionar um repositório remoto a sua máquina*<br>
-`git remote -v` *// mostra quais são os repositórios remotos atuais*<br><br>
-`git push` *// irá enviar os seu repositorio local para o repositório remoto*<br>
-`git push -u origin master` *// caso seja o primeiro push irá enviar os arquivos para a branch master*<br><br>
-`git clone link_do_repositorio` *// irá fazer um clone do repositório informado*<br><br>
-`git rm --cached nome_do_arquivo` *// remove o arquivo do próximo commit*<br>
-`git rm -r --cached .` *// irá remover todos os arquivos do rastreio do git* <br>
-`git rm nome_arquivo` *// remove o arquivo do diretorio, porém ele não vai para a lixeira do computador, ele é totalmente deletado*<br><br>
-`git diff` *// mostra todas as alterações dos arquivos no working directory em comparação com o diretorio. (-) significa linhas removidas, (+) significa linhas adicionadas*<br>
-`git diff --staged` *// mostra todas as alterações que serão commitadas.* <br>
-`git diff --color-words` *// mostra quais palavras foram adicionadas ou removidas <br><br>
-`git reset --` *// restaura o estado anterior dos arquivos*<br>
-`git reset -- nome_arquivo` *// restaura o arquivo ao está anterior* <br>
-`git reset HEAD .` *// irá restaurar todos os arquvios para onde a HEAD está apontada*<br>
-`git reset HEAD nome_arquivo` *// irá restaurar o arquivo para onde a HEAD está apontada*<br>
-`git reset --soft HEAD~numero-commits` *// irá tirar todos os commits informados no grafo (log) e enviar as modificações novamente para o stage. O número indicado representa os commits anteriores ao indicado no HEAD*<br>
-`git reset --hard` *// fará um reset forçado, e limpara toda a working tree<br><br>
-`git restore .` *// restaura todos os arquvios para o último commit realizado.* <br>
-`git restore nome_arquivo ` *// restaura o arquivo para o último commit realizado.* <br>
-`git restore --staged nome_arquivo` *// remove apenas o arquivo do stage area, mas não restaura suas informações* <br><br>
-`git mv nome_arquivo novo_nome_arquivo` *// irá renomear o arquivo*<br>
-`git mv nome_arquivo pasta/nome_arquivo` *// irá mover o arquivo para a pasta informada*<br><br>
-`git clean -n` *// mostra quais arquivos não rastreados serão removidos antes de realizar o comando*<br>
-`git clean -f` *// força a remoção dos arquivos não rastreados. Os arquivos deletados são completamente excluidos, não vvão para a lixeira*<br><br>
-`git revert HEAD~numero` *// restaura os arquivos do commit selecionado. O numero informado é a referente ao commit abaixo da head, e não da hash.*<br>
-`git revert numero_hash` *// restaura os aquivos do commit selecionado. Basta informar os primeiros números da hash*<br><br>
-`git rebase` *// unifica os branches envolvidos, puxando os commits para frente do branch de destino.*<br>
-`git rebase -i HEAD~numero-commits` *// abre uma janela interativa dentro do editor para gerenciar a quantidade de commits indicados*<br><br>
-`git gc` *//(gargage collector) é basicamente apagar a lixeira do git, limpando todos os grafos feitos antes. O git faz isso automáticamente depois de um tempo*<br><br>
-***
+`git init` *// Inicia um diretorio git na pasta atual*  
+
+`git commit -m "mensagem do commit"` *// Cria um novo commit com uma mensagem*  
+`git commit -am "mensagem do commit` *// Adiciona as alterações ao stage area e logo após realizado o commit, sem precisar usar o comando git add. Funciona apenas com arquivos já rastreados*  
+`git commit --amend -m "mesagem do novo commit"` *// Irá sobreescrever o último commit, como se fosse uma correção*  
+
+`git reflog` *// Mostra um log com todas as mudanças de grafos feitas pelo git*  
+
+`git log `*// Mostra todos os commits realizados*  
+`git log -i graph` *// Mostra o git log parecido como um gráfico*  
+`git log --oneline `*// Mostra todos os commits realizados com informações resumidas em uma linha*  
+`git log -n 5 `*// Limita a quantidade de commits para mostrar apenas os últimos*  
+`git log --since=ano-mes-dia `*// Mostra todos os commits a partir da data informada*  
+`git log --until=ano-mes-dia `*// Mostra todos os commits anteriores a data informada*  
+`git log --author=nome_do_autor_do_commit `*// Mostra todos os commits com base no nome*  
+`git log --grep="expressão" `*// (Global Regular Expression Print) Fará uma busca geral nos commits com base na expressão informada*
+
+`git add -i` *//(i = interative) Abre uma janela interativa mostrando opções do git add*  
+`git add -p` *//(p= patch) Git irá perguntar quais modificações do arquivo eu desejo commitar. Isso serve para fazer commits de mudanças bem especificas ao invés de todas as mudanças*  
+`git add nome_do_arquivo` *// Adiciona o arquivo a stage area*  
+`git add .` *// Adiciona todos os arquivos para a stage area*  
+`git add *.extensão` *// Irá adicionar ao stage area todos os arquivos com a extensão informada*  
+
+`git --version` *// Verifica a versão do git*  
+
+`git help` *// Mostra o manual do git*  
+
+`git status` *// Mostra o status de todos os arquivos do diretorio atual*  
+
+`git show` *// Mostra informações do último commit*  
+`git show -- numero_hash_commit pasta/*`  *// Mostra todas as alterações da pasta informada*  
+`git show -- numero_hash_commit pasta/nome_arquivo` *// Mostra todas as alterações do arquivo informado*  
+
+`git branch` *// Lista todos as branchs do projeto*  
+`git branch nome_da_branch` *// Cria uma nova branch a partir da branch atual*  
+`git branch -D nome_da_branch` *// Irá deletar a branch informada*  
+
+`git checkout começo_hash_commit -- nome_arquivo` *// Esse comando restaura um arquivo especificado de um dos commits realizados, é necessário adicionar a hash do comimit (por garantia, no minimo os 5 primieiros)*  
+`git checkout nome_da_branch` *// Irá direcionar para a branch informada*  
+
+`git merge nome_da_branch` *// Irá fazer um menge da branch com a master*  
+
+`git remote add origin "link do repositorio remoto"` *// Irá adicionar um repositório remoto a sua máquina*  
+`git remote -v` *// Mostra quais são os repositórios remotos atuais*  
+
+`git push` *// Irá enviar os seu repositorio local para o repositório remoto*  
+`git push -u origin master` *// Caso seja o primeiro push irá enviar os arquivos para a branch master*  
+
+`git clone link_do_repositorio` *// Irá fazer um clone do repositório informado*  
+
+`git rm --cached nome_do_arquivo` *// Remove o arquivo do próximo commit*  
+`git rm -r --cached .` *// irá remover todos os arquivos do rastreio do git*  
+`git rm nome_arquivo` *// Remove o arquivo do diretorio, porém ele não vai para a lixeira do computador, ele é totalmente deletado*  
+
+`git diff` *// Mostra todas as alterações dos arquivos no working directory em comparação com o diretorio. (-) significa linhas removidas, (+) significa linhas adicionadas*  
+`git diff --staged` *// Mostra todas as alterações que serão commitadas.*  
+`git diff --color-words` *// Mostra quais palavras foram adicionadas ou removidas*  
+
+`git reset --` *// Restaura o estado anterior dos arquivos*  
+`git reset -- nome_arquivo` *// Restaura o arquivo ao está anterior*  
+`git reset HEAD .` *// Irá restaurar todos os arquvios para onde a HEAD está apontada*  
+`git reset HEAD nome_arquivo` *// Irá restaurar o arquivo para onde a HEAD está apontada*  
+`git reset --soft HEAD~numero-commits` *// Irá tirar todos os commits informados no grafo (log) e enviar as modificações novamente para o stage. O número indicado representa os commits anteriores ao indicado no HEAD*  
+`git reset --hard` *// Fará um reset forçado, e limpara toda a working tree*  
+
+`git restore .` *// Restaura todos os arquvios para o último commit realizado.*  
+`git restore nome_arquivo ` *// Restaura o arquivo para o último commit realizado.*  
+`git restore --staged nome_arquivo` *// Remove apenas o arquivo do stage area, mas não restaura suas informações*  
+
+`git mv nome_arquivo novo_nome_arquivo` *// Irá renomear o arquivo*  
+`git mv nome_arquivo pasta/nome_arquivo` *// Irá mover o arquivo para a pasta informada*  
+
+`git clean -n` *// Mostra quais arquivos não rastreados serão removidos antes de realizar o comando*  
+`git clean -f` *// Força a remoção dos arquivos não rastreados. Os arquivos deletados são completamente excluidos, não vvão para a lixeira*  
+
+`git revert HEAD~numero` *// Restaura os arquivos do commit selecionado. O numero informado é a referente ao commit abaixo da head, e não da hash.*  
+`git revert numero_hash` *// Restaura os aquivos do commit selecionado. Basta informar os primeiros números da hash*  
+
+`git rebase` *// Unifica os branches envolvidos, puxando os commits para frente do branch de destino.*  
+`git rebase -i HEAD~numero-commits` *// Abre uma janela interativa dentro do editor para gerenciar a quantidade de commits indicados*  
+
+`git gc` *//(Gargage Collector) É basicamente apagar a lixeira do git, limpando todos os grafos feitos antes. O git faz isso automáticamente depois de um tempo*  
+
 # Comandos do terminal
-`clear` *// limpa o terminal*<br>
-`vim` *// inicia o editor vim*<br>
-`cat nome_do_arquivo` *// irá mostrar as informações contidas no arquivo*<br>
-`mkdir` *// (make directory) cria uma nova pasta/diretorio*<br>
-`cd` *// (change directory) usado para entrar nas pastas/diretorios*<br>
-`ls -a` *// mostra todos os arquivos, incluindo arquivos ocultos*<br>
-`ls -al` *// mostra informações detalhadas de todos os arquivos da pasta*<br>
-`touch` *// cria um novo arquivo*<br>
+`clear` *// Limpa o terminal*  
+`vim` *// Inicia o editor vim*  
+`cat nome_do_arquivo` *// Irá mostrar as informações contidas no arquivo*  
+`mkdir` *// (make directory) Cria uma nova pasta/diretorio*  
+`cd` *// (change directory) Usado para entrar nas pastas/diretorios*  
+`ls -a` *// Mostra todos os arquivos, incluindo arquivos ocultos*  
+`ls -al` *// Mostra informações detalhadas de todos os arquivos da pasta*  
+`touch` *// Cria um novo arquivo*  
