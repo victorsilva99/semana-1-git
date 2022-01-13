@@ -21,3 +21,16 @@
 - Aprendendo melhores práticas nos commits
 - Otimizando commits antes de um push
 - Aprendendo sobre Git ignore
+
+## Dia 4
+
+- O que é o GitFlow
+- GitFlow T-Systems
+- Nomenclatura de Versionamento (SemVer)
+- Tags e Releases
+- Entendendo melhor as Branchs
+
+## Dia 5
+
+- Padronização de commits (commit conventions)
+- 
