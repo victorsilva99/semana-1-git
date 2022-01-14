@@ -85,6 +85,18 @@
 `git mv <nome_arquivo> <novo_nome_arquivo>` *// Irá renomear o arquivo.*  
 `git mv <nome_arquivo> <pasta/nome_arquivo>` *// Irá mover o arquivo para a pasta informada.*  
 
+`git pull` *// É a combinação dos comandos fetch e merge, ele sincroniza o conteúdo local com o remoto e executa um merge imediatamente para criar um commit de merge.*  
+`git pull origin` *// Atualiza a branch atual de sua da sua origin usando apenas um commando.*  
+
+`git push` *// Irá enviar o seu repositório local para o repositório remoto.*  
+`git push --set-upstream origin novo-nome` *// Envia a branch renomeada para o repositório remoto.*  
+`git push origin` *// Manda a branch atual para a branch origin remota.*  
+`git push -u origin master` *// Caso seja o primeiro push irá enviar os arquivos para a branch master.*  
+`git push origin --delete <nome-antigo>` *// Deleta a branch do repositório remoto que você apagou localmente.*  
+`git push origin :nome-antigo` *// Substitua em "nome-antigo" pelo nome da sua branch antes de renomear.*  
+`git push origin <nome-novo>` *// Cria a nova branch no repositório remoto*  
+`git push origin -f <nome-branch>` *// Força o Git a manter a branch remota igual a local.*  
+
 `git rebase` *// Unifica as branches envolvidas, puxando os commits para frente do branch de destino.*  
 `git rebase -i HEAD~numero-de-commits` *// Abre uma janela interativa dentro do editor para gerenciar os commits indicados.*  
 
@@ -128,18 +140,6 @@
 
 `git status` *// Mostra o status de todos os arquivos do diretório atual.*  
 `git status --short` *// Mostra uma versão compacta do git status.*  
-
-`git pull` *// É a combinação dos comandos fetch e merge, ele sincroniza o conteúdo local com o remoto e executa um merge imediatamente para criar um commit de merge.*  
-`git pull origin` *// Atualiza a branch atual de sua da sua origin usando apenas um commando.*  
-
-`git push` *// Irá enviar o seu repositório local para o repositório remoto.*  
-`git push --set-upstream origin novo-nome` *// Envia a branch renomeada para o repositório remoto.*  
-`git push origin` *// Manda a branch atual para a branch origin remota.*  
-`git push -u origin master` *// Caso seja o primeiro push irá enviar os arquivos para a branch master.*  
-`git push origin --delete <nome-antigo>` *// Deleta a branch do repositório remoto que você apagou localmente.*  
-`git push origin :nome-antigo` *// Substitua em "nome-antigo" pelo nome da sua branch antes de renomear.*  
-`git push origin <nome-novo>` *// Cria a nova branch no repositório remoto*  
-`git push origin -f <nome-branch>` *// Força o Git a manter a branch remota igual a local.*  
 
 `git tag v.1.0.1` *// Cria uma tag simples.*  
 `git tag -a v1.0.1 -m "Descrição da tag` *// Cria uma nova tag. (-a) especifica a versão, (-b) deixa um comentário sobre a tag*  
