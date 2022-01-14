@@ -26,8 +26,9 @@
 `git add -i` *//(i = interative) Abre uma janela interativa mostrando opções do git add.*  
 `git add -p` *//(p= patch) Git irá perguntar quais modificações do arquivo eu desejo commitar. Isso serve para fazer commits de mudanças bem especificas ao invés de todas as mudanças.*  
 `git add <nome_do_arquivo>` *// Adiciona o arquivo a staging area.*  
-`git add .` *// Adiciona todos os arquivos para a staging area.*  
-`git add *.extensão` *// Irá adicionar ao stage area todos os arquivos com a extensão informada.* 
+`git add -A` *// Adiciona todos os arquivos novo, deletados e modificados a staging area*.  
+`git add .` *// Adiciona todos os arquivos modificados a staging area.*  
+`git add *.extensão` *// Irá adicionar ao stage area todos os arquivos com a extensão informada.*  
 
 `git branch` *// Lista as branchs locais do projeto.*  
 `git branch <nome_da_branch>` *// Cria uma nova branch a partir da branch atual.*  
@@ -45,7 +46,8 @@
 `git clean -n` *// Mostra quais arquivos não rastreados serão removidos antes de realizar o comando.*  
 `git clean -f` *// Força a remoção total dos arquivos não rastreados.*
 
-`git clone <link_do_repositório>` *// Irá fazer um clone do repositório informado.*  
+`git clone <link_do_repositório>` *// Irá fazer um clone do repositório informado.*
+`git clone <link_do_repositório> <nome_pasta>` *// Clona o repositório para a pasta informada.*  
 
 `git commit -m "aspas simples"` *// Com aspas simples você pode deixar mensagens com mais de 1 linha.*  
 `git commit -m "mensagem do commit"` *// Cria um novo commit com uma mensagem.*  
@@ -58,10 +60,13 @@
 `git diff --color-words` *// Mostra quais palavras foram adicionadas ou removidas.*  
 
 `git fetch` *// Baixar o conteúdo remoto, mas não vai atualizar o estado de trabalho do repositório local*  
+`git fetch <nome do repositório>` *// Pega o histórico de mudanças do repositório.*  
 
 `git gc` *// (Gargage Collector) É basicamente apagar a lixeira do Git, limpando todos os grafos feitos antes. O Git faz isso automaticamente depois de um tempo.*  
 
 `git help` *// Mostra o manual do git.*  
+`git <comando> -help` *// Mostra um guia referente ao comando informado.*  
+`git help --all` *// Mostra todos os comandos do git.*  
 
 `git init` *// Inicia um diretório git na pasta atual.*  
 
@@ -75,6 +80,7 @@
 `git log --grep="expressão"`*// (Global Regular Expression Print) Fará uma busca geral nos commits com base na expressão informada.*  
 
 `git merge <nome_da_branch>` *// Irá fazer um merge da branch com a master.*  
+`git merge origin/master` *// Faz um merge da branch atual com a branch master, na origin.*  
 
 `git mv <nome_arquivo> <novo_nome_arquivo>` *// Irá renomear o arquivo.*  
 `git mv <nome_arquivo> <pasta/nome_arquivo>` *// Irá mover o arquivo para a pasta informada.*  
@@ -86,9 +92,13 @@
 
 `git remote rm <nome-repositório>` *// Remove um repositório remoto.*  
 `git remote add origin "link do repositório remoto"` *// Irá adicionar um repositório remoto a sua máquina.*  
-`git remote -v` *// Mostra quais são os repositórios remotos atuais.*  
+`git remote -v` *// Mostra quais são os repositórios remotos atuais.*
+`git remote rename origin upstream` *// renomeia a origin para upstream.*  
+`git remote add <nome-repositório> <link-ssh-repositório>` *// Adiciona um novo repositório usando ssh.*  
+`git remote set-url origin <novo-link-repositório>` *// Substitui a url do repositório origin.*  
 
 `git reset --` *// Restaura o estado anterior dos arquivos.*  
+`git reset <hash>` *// Reseta o commit com a hash informada.*  
 `git reset <nome_arquivo>` *// Restaura o arquivo ao estado anterior.*  
 `git reset HEAD .` *// Irá restaurar todos os arquivos para onde a HEAD está apontada.*  
 `git reset HEAD <nome_arquivo>` *// Irá restaurar o arquivo para onde a HEAD está apontada.*  
@@ -103,7 +113,9 @@
 `git rm -r --cached .` *// Irá remover todos os arquivos do rastreio do git.*  
 `git rm nome_arquivo` *// Remove o arquivo do diretório de maneira permanente.*  
 
+`git revert HEAD` *// Restaura o último commit realizado.*  
 `git revert HEAD~numero` *// Restaura os arquivos do commit selecionado. O número informado é referente a posição do commit abaixo da HEAD.*  
+`git revert HEAD --no-edit` *// Reverte o último commit realizado, pulando a mensagem do commit.*  
 `git revert <commit_hash>` *// Restaura os aquivos do commit selecionado.*  
 
 `git short log` *// Mostra apenas as mensagens dos commits, e o nome do autor.*  
@@ -115,11 +127,14 @@
 `git stash` *// Salva as alterações sem commit (tanto as preparadas quanto as não preparadas) para uso posterior e as reverte da cópia de trabalho.*  
 
 `git status` *// Mostra o status de todos os arquivos do diretório atual.*  
+`git status --short` *// Mostra uma versão compacta do git status.*  
 
-`git pull` *// Baixa o conteúdo remoto para a branch ativa local e vai executar o comando git merge imediatamente para criar um commit de merge para o novo conteúdo remoto.*  
+`git pull` *// É a combinação dos comandos fetch e merge, ele sincroniza o conteúdo local com o remoto e executa um merge imediatamente para criar um commit de merge.*  
+`git pull origin` *// Atualiza a branch atual de sua da sua origin usando apenas um commando.*  
 
-`git push` *// Irá enviar os seu repositório local para o repositório remoto.*  
+`git push` *// Irá enviar o seu repositório local para o repositório remoto.*  
 `git push --set-upstream origin novo-nome` *// Envia a branch renomeada para o repositório remoto.*  
+`git push origin` *// Manda a branch atual para a branch origin remota.*  
 `git push -u origin master` *// Caso seja o primeiro push irá enviar os arquivos para a branch master.*  
 `git push origin --delete <nome-antigo>` *// Deleta a branch do repositório remoto que você apagou localmente.*  
 `git push origin :nome-antigo` *// Substitua em "nome-antigo" pelo nome da sua branch antes de renomear.*  

@@ -33,4 +33,4 @@
 ## Dia 5
 
 - Padronização de commits (commit conventions)
-- 
+- Realizando exercícios
