@@ -1,6 +1,6 @@
 # Comandos do Git
 
-## Linha inserida na nova branch
+## (TESTE) Linha inserida na nova branch
 
 > Estou usando esse arquivo para guardar todos os comandos que aprendi até então estudando Git durante o plano de estágio.
 
