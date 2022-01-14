@@ -1,7 +1,5 @@
 # Comandos do Git
 
-## (TESTE) Linha inserida na nova branch
-
 > Estou usando esse arquivo para guardar todos os comandos que aprendi até então estudando Git durante o plano de estágio.
 
 - [Lista de Comandos - Site Oficial](https://git-scm.com/docs)
