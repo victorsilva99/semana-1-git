@@ -33,4 +33,6 @@
 ## Dia 5
 
 - Padronização de commits (commit conventions)
-- Realizando exercícios
+- Realizado exercícios (w3school)
+- Realizado exercícios (Mão na massa)
+- Consolidação conteúdo
